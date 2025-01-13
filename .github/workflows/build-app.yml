@@ -18,7 +18,8 @@ jobs:
       - uses: sparkfabrik/android-build-action@v1.5.0
         with:
           project-path: .
-          output-path: app-debug.apk
+          gradle-task: assembleRelease
+          output-path: app-Release.apk
           fastlane-env: "release"
           ruby-version: "3.3.0"
       - uses: actions/upload-artifact@v3
@@ -26,7 +27,7 @@ jobs:
         name: Upload app APK
         with:
           name: App bundle
-          path: app-debug.apk
+          path: app-Release.apk
       # https://github.com/r0adkll/sign-android-release/issues/84#issuecomment-1889636075
       - name: Setup build tool version variable
         shell: bash
